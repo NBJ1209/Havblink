@@ -3,33 +3,58 @@ body {
 }
 
 header {
+  background-color: #FEF7ED;
+  padding-top: 60px;
+  padding-bottom: 10px;
+  color: #572929;
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: #FEF7ED;
-  padding-bottom: 1em;
-  padding-top: 60px;
-  color: #572929;
-  position: relative;
 }
 
-.header-flex, .footer-flex {
+.header-flex {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  text-align: center;
 }
 
-.header-menu, .footer-menu {
+.header-menu {
   list-style: none;
   display: flex;
-  align-items: baseline;
-  gap: 40px;
+  align-items: center;
   padding: 0;
   margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.header-menu li:nth-child(1) {
+  margin-right: 30px;
 }
 
-.header-menu a, .footer-menu a {
+.header-menu li:nth-child(2) {
+  margin-right: 30px;
+}
+
+.header-menu li:nth-child(3) {
+  margin-right: 130px;
+}
+
+.header-menu li:nth-child(5) {
+  margin-left: 30px;
+}
+
+.header-menu li:nth-child(6) {
+  margin-left: 30px;
+}
+
+.header-menu li:nth-child(7) {
+  margin-left: 30px;
+}
+
+
+.header-menu a {
   text-decoration: none;
   color: #572929;
   font-weight: bold;
@@ -38,98 +63,132 @@ header {
 .logo {
   height: 115px;
   position: absolute;
-  bottom: -30px;
+  bottom: -35px;
   left: 50%;
   transform: translateX(-100%);
-  z-index: 10;
   margin: 0 3em;
 }
 
 .logo-footer {
-  height: 60px;
+  height: 80px;
   margin: 0 1em;
 }
 
-.footer-text, .logo-text {
+footer {
+  background-color: #FEF7ED;
+  padding-top: 14px;
+  padding-bottom: 10px;
+  color: #572929;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.footer-flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 50px;
+  text-align: center;
+}
+
+.footer-flex > div {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-text {
   margin: 0 1em;
   font-size: 0.9em;
   color: #666;
 }
 
-footer {
-  background-color: #FEF7ED;
-  padding-bottom: 1em;
-  padding-top: 30px;
-  color: #572929;
-  position: relative;
+@font-face {
+  font-family: gistesy;
+  src: url(fonts/Gistesy.ttf) format('truetype');
+}
+
+.logo-text {
+  font-family: gistesy, sans-serif;
+  margin-top: 0px;
+  font-size: 22px;
+  font-weight: lighter;
+  color: #000000;
 }
 
 .header-menu a:hover, .footer-menu a:hover {
   text-decoration: underline;
 }
 
-@media screen and (max-width: 768px) {
-  .header-menu, .footer-menu {
-    Display: block;
+#menu-toggle {
+  display: none;
+}
+
+.burger {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
   }
+
   .header-menu {
-    display: block;
-  }
-
-  .logo {
-    position: static;
-    transform: none;
-    margin: 1em 0;
-  }
-=======
-body {
-    margin: 0;
-  }
-
-  header, footer {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 55px;
     background-color: #FEF7ED;
-    padding: 1em 0;
-    color: #572929;
-  }
-  
-  .header-flex, .footer-flex {
-    display: flex;
-    justify-content: center;
-    align-items :center;
-    flex-wrap: wrap;
-  }
-  
-  .header-menu, .footer-menu {
-    list-style: none;
-    display: flex;
-    align-items: baseline;
-    gap: 1em;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .header-menu a, .footer-menu a {
-    text-decoration: none;
-    color: #572929;
-    font-weight: bold;
-  }
-  
-  .logo, .logo-footer {
-    height: 100px;
-    margin: 0 1em;
-  }
-  
-  .hero-image {
+    padding: 10px;
     width: 100%;
-    height: auto;
-    display: block;
+  }
+
+  #menu-toggle:checked + .header-flex .header-menu {
+    display: flex;
+  }
+
+  .header-flex .logo-wrap {
+    position: relative;
+    z-index: 1;
   }
   
-  .footer-text, .logo-text {
-    margin: 0 1em;
-    font-size: 0.9em;
-    color: #666;
+  .logo {
+    height: 100px;
+    position: absolute;
+    top: -55px;
   }
-  .header-menu a:hover, .footer-menu a:hover {
-    text-decoration: underline;
-  }
+.header-menu li:nth-child(1) {
+  margin-right: 0px;
+}
+
+.header-menu li:nth-child(2) {
+  margin-right: 0px;
+}
+
+.header-menu li:nth-child(3) {
+  margin-right: 0px;
+}
+
+.header-menu li:nth-child(5) {
+  margin-left: 0px;
+}
+
+.header-menu li:nth-child(6) {
+  margin-left: 0px;
+}
+
+.header-menu li:nth-child(7) {
+  margin-left: 0px;
+}
+.footer-flex {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+}
