@@ -1,81 +1,91 @@
 @font-face {
   font-family: gistesy;
-  src: url(fonts/Gistesy.ttf) format('truetype'); /* Den håndskrevne font til logo og overskrifter. */
+  src: url(fonts/Gistesy.ttf) format('truetype'); /* Import af håndskrevet font */
 }
 
 .hero-container {
-  /* Hero med baggrundsbillede fra gårdbutikken – fylder næsten hele skærmen. */
-  position: relative;
+  position: relative; /* Så tekst kan placeres ovenpå */
   width: 100%;
-  height: 90vh;
+  height: 90vh; /* Hero-sektion fylder næsten hele viewport højden */
   background-image: url('images/Gaardbutik.jpg');
-  background-size: cover;
-  background-position: center;
+  background-size: cover; /* Billedet fylder hele containeren */
+  background-position: center; /* Centrering af billedet */
   background-repeat: no-repeat;
 }
 
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block; /* Gør billedet blok-element for bedre layout */
+}
+
 .hero-text {
-  /* Centrering af tekst ovenpå billedet – med lidt skygge så det popper. */
-  position: absolute;
+  position: absolute; /* Placering ovenpå hero-container */
   top: 35%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* Centrerer teksten perfekt */
   color: #fff;
   text-align: center;
-  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); /* Gør teksten mere læsbar på billedet */
+  padding: 0 1em; /* Lidt luft til siderne */
 }
 
 .hero-text h1 {
-  /* Stor overskrift med den håndskrevne vibe. */
   font-family: gistesy, sans-serif;
-  font-size: 120px;
+  font-weight: normal;
+  font-size: 120px; /* Stor, tydelig overskrift */
   margin: 0;
 }
 
 .hero-text p {
   font-size: 28px;
-  margin: 0;
-  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  margin: 0px 0 0;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); /* Samme skygge som overskrift */
 }
 
 .gaardbutikken-flex {
-  /* Flexlayout til sektionen – tekst og billede side om side. */
   display: flex;
-  gap: 3em;
+  align-items: center;
+  justify-content: center;
+  gap: 3em; /* Luft mellem billedet og teksten */
   padding: 4em 2em;
   max-width: 1600px;
-  margin: 0 auto;
-  flex-wrap: wrap; /* Så det også virker på små skærme. */
+  margin: 0 auto; /* Centrerer containeren horisontalt */
+  flex-wrap: wrap; /* Gør layout responsivt ved at bryde til næste linje */
 }
 
 .gaardbutik-image {
-  /* Billedet beskæres pænt og holder størrelsen. */
   width: 500px;
+  max-width: 100%; /* Sikrer at billedet ikke bliver større end container */
   height: 500px;
-  object-fit: cover;
-  max-width: 100%;
+  object-fit: cover; /* Bevarer billedets proportioner og beskærer ved behov */
+}
+
+.gaardbutik-content {
+  max-width: 500px;
+  width: 100%; /* Fylder hele bredde på små skærme */
 }
 
 .gaardbutik-title {
-  /* Overskrift med fonten fra logoet – holder stilen. */
   font-family: gistesy, sans-serif;
+  font-weight: normal;
   text-align: center;
   font-size: 70px;
-  color: #000;
+  color: #000000;
+  margin-bottom: 0.5em;
 }
 
 .gaardbutik-text {
-  /* Brødtekst i serif – lidt mere “bogagtigt” look. */
-  font-family: lora, serif;
+  font-family: lora, serif; /* En læsevenlig serif font til brødtekst */
   text-align: justify;
+  font-size: 16px;
   line-height: 1.6;
   color: #572929;
 }
 
 @media screen and (max-width: 768px) {
-  /* Justeringer til mobil – mindre tekst, flex bliver til kolonner. */
   .hero-text h1 {
-    font-size: 80px;
+    font-size: 80px; /* Mindre overskrift på små skærme */
   }
 
   .hero-text p {
@@ -83,16 +93,21 @@
   }
 
   .gaardbutikken-flex {
-    flex-direction: column;
-    padding: 2em 1em;
+    flex-direction: column; /* Skift til lodret layout */
+    text-align: justify; /* Justeret tekst for bedre læsbarhed */
+    padding: 2em 1em; /* Mindre padding på små skærme */
   }
 
   .gaardbutik-title {
-    font-size: 50px;
+    font-size: 50px; /* Tilpasset titelstørrelse */
+  }
+
+  .gaardbutik-text {
+    font-size: 16px;
   }
 
   .gaardbutik-image {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Billedet fylder bredde på små skærme */
+    height: auto; /* Højde tilpasses automatisk */
   }
 }

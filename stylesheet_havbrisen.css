@@ -1,51 +1,56 @@
 @font-face {
-  /* Samme font som før – til overskrifterne. */
   font-family: gistesy;
-  src: url(fonts/Gistesy.ttf) format('truetype');
+  src: url(fonts/Gistesy.ttf) format('truetype'); /* Håndskrevet font */
 }
 
 .havbrisen-flex {
-  /* Flexlayout til vinsektionen – tekst og billede side om side. */
   display: flex;
-  gap: 3em;
+  align-items: center; /* Vertikal centrering */
+  justify-content: center; /* Horisontal centrering */
+  gap: 3em; /* Mellemrum mellem elementer */
   padding: 4em 2em;
   max-width: 1400px;
-  margin: 0 auto;
-  flex-wrap: wrap;
+  margin: 0 auto; /* Centrerer containeren */
+  flex-wrap: wrap; /* Sikrer responsivitet */
 }
 
 .havbrisen-image {
-  /* Billedet holder sig inde i boksen – også på mobil. */
   max-width: 300px;
-  object-fit: cover;
-  flex: 1;
+  width: 100%; /* Fylder containerens bredde op til max-width */
+  height: auto; /* Bevarer billedets proportioner */
+  object-fit: cover; /* Beskærer billedet pænt hvis nødvendigt */
+  flex: 1; /* Flex-grow for bedre fordeling */
 }
 
 .havbrisen-content {
-  /* Tekstboksen tager resten af pladsen. */
   max-width: 600px;
+  width: 100%;
   flex: 1;
 }
 
 .havbrisen-title {
-  /* Kæmpe overskrift med den håndskrevne font – centreres. */
   font-family: gistesy, sans-serif;
+  font-weight: normal;
   text-align: center;
-  font-size: 100px;
-  color: #000;
+  font-size: 100px; /* Stor titel */
+  color: #000000;
+  margin-bottom: 1em;
 }
 
 .havbrisen-text {
-  /* Brødtekst med læsevenlig serif – lidt luft imellem linjerne. */
-  font-family: lora, serif;
+  font-family: lora, serif; /* Læsevenlig brødtekst */
+  max-width: 500px;
   text-align: justify;
   font-size: 18px;
+  line-height: 1.6;
   color: #572929;
+  margin-bottom: 1em;
 }
 
 .alders-flex {
-  /* Lige lidt flex til “du skal være over 18”-info – står pænt ved siden af hinanden. */
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 2em;
   padding: 2em;
   max-width: 500px;
@@ -54,34 +59,48 @@
 }
 
 .alders-text {
-  /* Teksten er centreret og med samme farve som resten. */
   text-align: center;
   font-size: 18px;
   color: #572929;
+  flex: 1;
+  min-width: 250px;
+}
+
+.alders-image {
+  width: 100px;
+  height: auto;
 }
 
 @media screen and (max-width: 768px) {
   .havbrisen-flex {
-    /* Tekst og billede ryger over hinanden på mobil – billedet nederst. */
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; /* Bytter rækkefølgen på små skærme */
+    text-align: justify;
     padding: 2em 1em;
   }
 
-  .havbrisen-text,
-  .alders-text {
-    font-size: 16px; /* Lidt mindre tekst på små skærme. */
+  .havbrisen-title {
+    font-size: 100px; /* Kan evt. skaleres ned, men du har valgt at beholde den */
+  }
+
+  .havbrisen-text {
+    font-size: 16px; /* Mindre tekst til små skærme */
   }
 
   .havbrisen-image {
-    width: 50%;
+    width: 50%; /* Billedet fylder halvdelen af bredden */
+    height: auto;
   }
 
   .alders-flex {
-    flex-direction: column;
+    flex-direction: column; /* Lodret stacking */
     text-align: center;
   }
 
+  .alders-text {
+    font-size: 16px;
+  }
+
   .alders-image {
-    width: 80px;
+    width: 80px; /* Mindre billeder på mobil */
   }
 }

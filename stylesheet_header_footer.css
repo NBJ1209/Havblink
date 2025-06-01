@@ -1,27 +1,27 @@
 body {
-  margin: 0; /* Fjerner default kant. */
+  margin: 0; /* Fjerner standard margin på body */
 }
 
 header {
-  background-color: #FEF7ED; /* Samme lyse farve som resten. */
-  padding-top: 60px; /* Lidt luft over menuen. */
+  background-color: #FEF7ED;
+  padding-top: 60px;
   padding-bottom: 10px;
-  color: #572929; /* Den mørke vinrøde – gennemgående farve. */
-  position: sticky;
+  color: #572929;
+  position: sticky; /* Holder headeren fast øverst ved scroll */
   top: 0;
-  z-index: 100; /* Ligger sig øverst. */
+  z-index: 100; /* Sørger for header ligger over andet indhold */
 }
 
 .header-flex {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  text-align: center; /* Alt centreres pænt. */
+  flex-wrap: wrap; /* Gør det muligt at bryde til næste linje på små skærme */
+  text-align: center;
 }
 
 .header-menu {
-  list-style: none; /* Fjerner prikker. */
+  list-style: none; /* Fjerner punkttegn */
   display: flex;
   align-items: center;
   padding: 0;
@@ -30,17 +30,40 @@ header {
   justify-content: center;
 }
 
+/* Margin for at skabe luft mellem menupunkter */
+.header-menu li:nth-child(1),
+.header-menu li:nth-child(2) {
+  margin-right: 30px;
+}
+
 .header-menu li:nth-child(3) {
-  margin-right: 130px; /* Plads til logo. */
+  margin-right: 130px; /* Større afstand her - måske for logo plads */
+}
+
+.header-menu li:nth-child(5),
+.header-menu li:nth-child(6),
+.header-menu li:nth-child(7) {
+  margin-left: 30px;
+}
+
+.header-menu a {
+  text-decoration: none;
+  color: #572929;
+  font-weight: bold;
 }
 
 .logo {
   height: 115px;
   position: absolute;
-  bottom: -35px; /* Giver den der overlappende effekt. */
+  bottom: -35px;
   left: 50%;
   transform: translateX(-100%);
   margin: 0 3em;
+}
+
+.logo-footer {
+  height: 80px;
+  margin: 0 1em;
 }
 
 footer {
@@ -48,7 +71,7 @@ footer {
   padding-top: 14px;
   padding-bottom: 10px;
   color: #572929;
-  position: sticky;
+  position: sticky; /* Sticky footer ligesom header */
   top: 0;
   z-index: 100;
 }
@@ -58,20 +81,42 @@ footer {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 50px; /* Fin luft mellem kolonner. */
+  gap: 50px;
   text-align: center;
+}
+
+.footer-flex > div {
+  flex: 1;
+  min-width: 200px; /* Sørger for minimum bredde på footer-sektioner */
+}
+
+.footer-text {
+  margin: 0 1em;
+  font-size: 0.9em;
+  color: #666;
 }
 
 @font-face {
   font-family: gistesy;
-  src: url(fonts/Gistesy.ttf) format('truetype'); /* Font til logo/tekst. */
+  src: url(fonts/Gistesy.ttf) format('truetype'); /* Håndskrevet font */
 }
 
 .logo-text {
   font-family: gistesy, sans-serif;
+  margin-top: 0px;
   font-size: 22px;
   font-weight: lighter;
   color: #000000;
+}
+
+/* Hover effekt på links i header og footer */
+.header-menu a:hover,
+.footer-menu a:hover {
+  text-decoration: underline;
+}
+
+#menu-toggle {
+  display: none; /* Skjuler checkboxen til burger-menu */
 }
 
 .burger {
@@ -81,46 +126,56 @@ footer {
   position: absolute;
   top: 15px;
   right: 20px;
-  z-index: 100; /* Skal ligge øverst. */
+  z-index: 100; /* Sørger for burgerikonet ligger over andre elementer */
 }
 
+/* RESPONSIVT */
 @media (max-width: 768px) {
   .burger {
-    display: block; /* Vises kun på mobil. */
+    display: block; /* Vis burger-menu ikon på små skærme */
   }
 
   .header-menu {
-    display: none;
+    display: none; /* Skjuler menuen til burger-menu aktiveres */
     flex-direction: column;
+    gap: 10px;
+    margin-top: 55px;
     background-color: #FEF7ED;
     padding: 10px;
     width: 100%;
   }
 
+  /* Viser menuen når burger-menu er tjekket */
   #menu-toggle:checked + .header-flex .header-menu {
-    display: flex; /* Viser menuen når der trykkes. */
+    display: flex;
   }
 
+  .header-flex .logo-wrap {
+    position: relative;
+    z-index: 1;
+  }
+  
   .logo {
     height: 100px;
     position: absolute;
-    top: -55px; /* Tilpasset mobil. */
+    top: -55px;
   }
 
-  .footer-flex {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  /* Fjerner margin på mobil-menu */
+  /* Fjerner margin mellem menupunkterne på små skærme */
   .header-menu li:nth-child(1),
   .header-menu li:nth-child(2),
   .header-menu li:nth-child(3),
   .header-menu li:nth-child(5),
   .header-menu li:nth-child(6),
   .header-menu li:nth-child(7) {
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
+  }
+
+  /* Footer ændres til kolonne-layout på små skærme */
+  .footer-flex {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
