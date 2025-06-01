@@ -1,125 +1,138 @@
 @font-face {
-    font-family: gistesy;
-    src: url(fonts/Gistesy.ttf) format('truetype');
-  }
-  
-  .hero-container {
-    position: relative;
-    width: 100%;
-    height: 90vh;
-    background-image: url('images/Wine.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  
-  .hero-text {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    text-align: center;
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
-    padding: 0 1em;
-  }
-  
+  /* Importer gistesy font */
+  font-family: gistesy;
+  src: url(fonts/Gistesy.ttf) format('truetype');
+}
+
+.hero-container {
+  /* Hero med baggrundsbillede og fylder 90vh */
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background-image: url('images/Wine.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-text {
+  /* Tekst centreret over hero */
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  text-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+  padding: 0 1em;
+}
+
+.hero-text h1 {
+  /* Stor overskrift med gistesy */
+  font-family: gistesy, sans-serif;
+  font-weight: normal;
+  font-size: 120px;
+  margin: 0;
+}
+
+.hero-text p {
+  /* Underoverskrift med skygge */
+  font-size: 28px;
+  margin: 0;
+  text-shadow: 4px 4px 4px rgba(0,0,0,0.5);
+}
+
+.vin-flex {
+  /* Container til vin-sektionen */
+  max-width: 1200px;
+  margin: 2em auto;
+  padding: 0 1em;
+}
+
+.vin-flex a {
+  /* Link som blok */
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.vin-flex a > div {
+  /* Flex-box med baggrund og padding */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2em;
+  background-color: #fef7ed;
+  padding: 1.5em;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.vin-flex a:hover > div {
+  /* Hover-effekt på boksen */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.tekst-container {
+  /* Tekstområde i flex */
+  flex: 1;
+}
+
+.tekst-container h2 {
+  /* Overskrift i tekst-container */
+  font-family: gistesy, sans-serif;
+  font-size: 75px;
+  font-weight: normal;
+  text-align: center;
+  color: #000;
+  margin: 0 0 0.5em;
+}
+
+.tekst-container p {
+  /* Tekst under overskrift */
+  font-size: 24px;
+  text-align: center;
+  color: #572929;
+  margin: 0;
+}
+
+.havbrisen-image {
+  /* Billede i flex med max bredde */
+  flex: 1;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* RESPONSIV */
+@media screen and (max-width: 768px) {
   .hero-text h1 {
-    font-family: gistesy, sans-serif;
-    font-weight: normal;
-    font-size: 120px;
-    margin: 0;
+    font-size: 100px;
   }
-  
+
   .hero-text p {
-    font-size: 28px;
-    margin: 0;
-    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
-  }
-  
-  .vin-flex {
-    max-width: 1200px;
-    margin: 2em auto;
-    padding: 0 1em;
-  }
-  
-  .vin-flex a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-  
-  .vin-flex a > div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 2em;
-    background-color: #fef7ed;
-    padding: 1.5em;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .vin-flex a:hover > div {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-  }
-  
-  .tekst-container {
-    flex: 1;
-  }
-  
-  .tekst-container h2 {
-    font-family: gistesy, sans-serif;
-    font-size: 75px;
-    font-weight: normal;
-    text-align: center;
-    color: #000;
-    margin: 0 0 0.5em;
-  }
-  
-  .tekst-container p {
     font-size: 24px;
+  }
+
+  .vin-flex a > div {
+    /* Skift til kolonne på små skærme */
+    flex-direction: column;
     text-align: center;
-    color: #572929;
-    margin: 0;
+    gap: 1em;
   }
-  
+
+  .tekst-container h2 {
+    font-size: 60px;
+  }
+
+  .tekst-container p {
+    font-size: 20px;
+  }
+
   .havbrisen-image {
-    flex: 1;
-    max-width: 400px;
-    width: 100%;
-    border-radius: 6px;
-    object-fit: cover;
+    max-width: 100%;
   }
-  
-  /* RESPONSIV */
-  @media screen and (max-width: 768px) {
-    .hero-text h1 {
-      font-size: 100px;
-    }
-  
-    .hero-text p {
-      font-size: 24px;
-    }
-  
-    .vin-flex a > div {
-      flex-direction: column;
-      text-align: center;
-      gap: 1em;
-    }
-  
-    .tekst-container h2 {
-      font-size: 60px;
-    }
-  
-    .tekst-container p {
-      font-size: 20px;
-    }
-  
-    .havbrisen-image {
-      max-width: 100%;
-    }
-  }
-  
+}
