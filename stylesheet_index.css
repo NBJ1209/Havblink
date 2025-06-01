@@ -1,5 +1,5 @@
 @font-face {
-  /* Den håndskrevne font igen */
+  /* Den håndskrevne font, som giver personlighed */
   font-family: gistesy;
   src: url(fonts/Gistesy.ttf) format('truetype');
 }
@@ -15,21 +15,21 @@ body {
 .hero-container {
   /* Baggrundsbillede med tekst ovenpå */
   position: relative;
-  height: 90vh;
+  height: 90vh; /* Fylder næsten hele skærmhøjden */
   background-image: url('images/jess-snoek-DC8HdES6eM8-unsplash.jpg');
-  background-size: cover;
+  background-size: cover; /* Dækker hele området uden at strække */
   background-position: center;
 }
 
 .hero-text {
   /* Centrering af hero-tekst */
   position: absolute;
-  top: 35%;
+  top: 35%; /* Placeret lidt under midten for visuelt flow */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   color: #fff;
-  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); /* Let skygge for læsbarhed */
 }
 
 .hero-text h1 {
@@ -53,12 +53,12 @@ body {
   flex-wrap: wrap;
   padding: 2em;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; /* Centrerer containeren på siden */
 }
 
 .forside-flex a {
   /* Hver boks linker videre */
-  flex: 1 1 300px;
+  flex: 1 1 300px; /* Fleksibel størrelse med minimum bredde */
   max-width: 350px;
   text-decoration: none;
   color: inherit;
@@ -75,7 +75,7 @@ body {
 }
 
 .forside-flex a:hover > div {
-  /* Hover-effekt */
+  /* Hover-effekt for bedre brugerfeedback */
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
@@ -167,7 +167,7 @@ body {
   }
 
   .forside-flex {
-    flex-direction: column;
+    flex-direction: column; /* Stabler bokse lodret på små skærme */
     align-items: center;
   }
 
