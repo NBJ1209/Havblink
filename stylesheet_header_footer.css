@@ -37,7 +37,7 @@ header {
 }
 
 .header-menu li:nth-child(3) {
-  margin-right: 130px; /* Større afstand her - måske for logo plads */
+  margin-right: 130px; /* Større afstand her - logo plads */
 }
 
 .header-menu li:nth-child(5),
